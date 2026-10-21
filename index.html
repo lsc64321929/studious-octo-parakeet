@@ -1,0 +1,81 @@
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>欢迎点我们的歌 - 歌单</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#f2f7f6;color:#1c2b28;padding-bottom:60px}
+.hero{background:linear-gradient(135deg,#0fa98f,#0e7d6b);color:#fff;padding:30px 20px 26px}
+.hero h1{font-size:22px;font-weight:700;letter-spacing:.5px;word-break:break-all}
+.hero .sub{font-size:13px;opacity:.85;margin-top:6px}
+.search{max-width:560px;margin:16px auto 0;padding:0 16px}
+.search input{width:100%;padding:11px 16px;border-radius:22px;border:1px solid #d7e6e2;font-size:14px;outline:none;background:#fff}
+.list{max-width:560px;margin:16px auto 0;padding:0 16px;display:flex;flex-direction:column;gap:10px}
+.item{background:#fff;border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(14,125,107,.06)}
+.idx{width:26px;height:26px;border-radius:50%;background:#e6f5f1;color:#0e7d6b;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.info{flex:1;min-width:0}
+.title{font-size:16px;font-weight:600;word-break:break-all}
+.artist{font-size:13px;color:#7a8f89;margin-top:2px}
+.copy{flex-shrink:0;border:1px solid #cfe3de;background:#fff;color:#0e7d6b;font-size:12px;padding:6px 12px;border-radius:16px;cursor:pointer}
+.copy:active{background:#e6f5f1}
+.empty{text-align:center;color:#9ab3ac;padding:40px 0;font-size:14px}
+.foot{max-width:560px;margin:24px auto 0;padding:0 16px;text-align:center;color:#9ab3ac;font-size:12px}
+.toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:rgba(20,40,36,.9);color:#fff;padding:10px 18px;border-radius:20px;font-size:13px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:9;white-space:nowrap;max-width:80vw;overflow:hidden;text-overflow:ellipsis}
+.toast.show{opacity:1}
+</style>
+
+
+<div class="hero">
+  <h1>__PLAYLIST_NAME__</h1>
+  <div class="sub" id="sub">共 0 首</div>
+</div>
+<div class="search"><input id="q" placeholder="搜索歌曲或歌手…"></div>
+<div class="list" id="list"></div>
+<div class="foot">由「歌单二维码生成器」生成</div>
+<div class="toast" id="toast"></div>
+<script>
+var SONGS = [{"id":"mvbv9oyi_prq4c3","title":"多年以后","artist":"黄静美"},{"id":"mvhy1bor_7wsaj5","title":"美人鱼","artist":"林俊杰"},{"id":"mvhyfaam_egts59","title":"此生无憾","artist":"广东吴勇"}];
+(function(){
+  var sub=document.getElementById('sub'), list=document.getElementById('list'), q=document.getElementById('q');
+  sub.textContent='共 '+SONGS.length+' 首';
+  function esc(str){ return String(str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function closestEl(node, cls){
+    while(node && node!==document){ if(node.classList && node.classList.contains(cls)) return node; node=node.parentNode; }
+    return null;
+  }
+  function render(kw){
+    kw=(kw||'').trim().toLowerCase();
+    var rows=SONGS.map(function(s,i){ return {s:s,i:i,hit:!kw || (s.title||'').toLowerCase().indexOf(kw)>-1 || (s.artist||'').toLowerCase().indexOf(kw)>-1}; })
+                  .filter(function(r){ return r.hit; });
+    if(!rows.length){ list.innerHTML='<div class="empty">'+(SONGS.length?'没有匹配的歌曲':'歌单是空的')+'</div>'; return; }
+    var html='';
+    rows.forEach(function(r){
+      var s=r.s, artist=s.artist? '<div class="artist">'+esc(s.artist)+'</div>':'';
+      var txt=esc(s.title+(s.artist?' - '+s.artist:''));
+      html+='<div class="item"><div class="idx">'+(r.i+1)+'</div><div class="info"><div class="title">'+esc(s.title)+'</div>'+artist+'</div><button class="copy" data-txt="'+txt+'">复制</button></div>';
+    });
+    list.innerHTML=html;
+  }
+  var toastTimer;
+  function toast(msg){ var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(function(){ t.classList.remove('show'); },1600); }
+  function copyFallback(txt){
+    var ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); toast('已复制'); }catch(e){ toast('复制失败'); }
+    document.body.removeChild(ta);
+  }
+  list.addEventListener('click',function(e){
+    var b=closestEl(e.target,'copy'); if(!b) return;
+    var txt=b.getAttribute('data-txt');
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ toast('已复制'); }, function(){ copyFallback(txt); });
+    } else copyFallback(txt);
+  });
+  q.addEventListener('input',function(){ render(q.value); });
+  render('');
+})();
+</script>
+
+

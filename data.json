@@ -1,196 +1,8 @@
 {
  "title": "速记谱歌单",
- "updated": "2026/10/30 23:08:21",
+ "updated": "2026/10/30 23:11:55",
  "playlists": {
   "全部歌曲": [
-   {
-    "title": "简单爱",
-    "artist": "周杰伦"
-   },
-   {
-    "title": "玫瑰花的葬礼",
-    "artist": "许嵩"
-   },
-   {
-    "title": "年轮",
-    "artist": "汪苏泷"
-   },
-   {
-    "title": "偏爱",
-    "artist": "张芸京"
-   },
-   {
-    "title": "囚鸟",
-    "artist": "张宇"
-   },
-   {
-    "title": "同人不同命",
-    "artist": "秦达"
-   },
-   {
-    "title": "忘记时间",
-    "artist": "胡歌"
-   },
-   {
-    "title": "唯一",
-    "artist": "邓紫棋"
-   },
-   {
-    "title": "我们之间",
-    "artist": "令狐聪"
-   },
-   {
-    "title": "小芳",
-    "artist": "李春波"
-   },
-   {
-    "title": "小美满",
-    "artist": "周深"
-   },
-   {
-    "title": "一厢情愿",
-    "artist": "令狐聪"
-   },
-   {
-    "title": "一心的爱",
-    "artist": "令狐聪"
-   },
-   {
-    "title": "因为爱所以爱",
-    "artist": "令狐聪"
-   },
-   {
-    "title": "雨一直下",
-    "artist": "张宇"
-   },
-   {
-    "title": "月光曲",
-    "artist": "陆虎"
-   },
-   {
-    "title": "月亮惹的祸",
-    "artist": "张宇"
-   },
-   {
-    "title": "只有你的从前",
-    "artist": "段林希"
-   },
-   {
-    "title": "报恩的九尾",
-    "artist": "丁乙"
-   },
-   {
-    "title": "说谎",
-    "artist": "林宥嘉"
-   },
-   {
-    "title": "可惜没如果",
-    "artist": "林俊杰"
-   },
-   {
-    "title": "嘉宾",
-    "artist": "张远"
-   },
-   {
-    "title": "南方姑娘",
-    "artist": "赵雷"
-   },
-   {
-    "title": "如愿",
-    "artist": "王菲"
-   },
-   {
-    "title": "后来",
-    "artist": "刘若英"
-   },
-   {
-    "title": "隐形的翅膀",
-    "artist": "张韶涵"
-   },
-   {
-    "title": "凉凉",
-    "artist": "张碧晨 / 杨宗纬"
-   },
-   {
-    "title": "洋葱",
-    "artist": "杨宗纬"
-   },
-   {
-    "title": "左手指月",
-    "artist": "萨顶顶"
-   },
-   {
-    "title": "牵丝戏",
-    "artist": "银临 / Aki阿杰"
-   },
-   {
-    "title": "赤伶",
-    "artist": "谭晶"
-   },
-   {
-    "title": "桃花诺",
-    "artist": "邓紫棋"
-   },
-   {
-    "title": "九张机",
-    "artist": "叶炫清"
-   },
-   {
-    "title": "第57次取消发送",
-    "artist": "菲菲公主（陆绮菲）"
-   },
-   {
-    "title": "沈园外",
-    "artist": "阿YueYue / 戾格 / 小田音乐社"
-   },
-   {
-    "title": "壁上观",
-    "artist": "鞠婧祎"
-   },
-   {
-    "title": "姑娘",
-    "artist": "陈楚生"
-   },
-   {
-    "title": "琵琶行",
-    "artist": "奇然 / 沈谧仁"
-   },
-   {
-    "title": "万疆",
-    "artist": "李玉刚"
-   },
-   {
-    "title": "天地龙鳞",
-    "artist": "王力宏"
-   },
-   {
-    "title": "天下",
-    "artist": "张杰"
-   },
-   {
-    "title": "孤勇者",
-    "artist": "陈奕迅"
-   },
-   {
-    "title": "一勺温柔喂时光",
-    "artist": "啊粘粘"
-   },
-   {
-    "title": "有形的翅膀",
-    "artist": "张韶涵"
-   },
-   {
-    "title": "代替",
-    "artist": "羊羊"
-   },
-   {
-    "title": "别知己",
-    "artist": "海来阿木"
-   },
-   {
-    "title": "如果累了就回故乡",
-    "artist": "ItaloRiders"
-   },
    {
     "title": "此生无憾",
     "artist": "广东吴勇"
@@ -498,12 +310,14 @@
    {
     "title": "只要平凡",
     "artist": "张杰 / 张碧晨"
-   }
-  ],
-  "临时歌单": [
+   },
    {
     "title": "简单爱",
     "artist": "周杰伦"
+   },
+   {
+    "title": "给你们",
+    "artist": "张宇"
    },
    {
     "title": "玫瑰花的葬礼",
@@ -998,6 +812,18 @@
    {
     "title": "只要平凡",
     "artist": "张杰 / 张碧晨"
+   },
+   {
+    "title": "简单爱",
+    "artist": "周杰伦"
+   },
+   {
+    "title": "给你们",
+    "artist": "张宇"
+   },
+   {
+    "title": "玫瑰花的葬礼",
+    "artist": "许嵩"
    }
   ],
   "路演": [
@@ -1108,6 +934,18 @@
    {
     "title": "晚风",
     "artist": "伍佰"
+   },
+   {
+    "title": "多年以后",
+    "artist": "姜育恒"
+   },
+   {
+    "title": "多年以后",
+    "artist": "大欢"
+   },
+   {
+    "title": "多年以后",
+    "artist": "黄静美"
    }
   ],
   "独唱曲目": [
@@ -1198,6 +1036,10 @@
    {
     "title": "只要平凡",
     "artist": "张杰 / 张碧晨"
+   },
+   {
+    "title": "给你们",
+    "artist": "张宇"
    }
   ]
  }

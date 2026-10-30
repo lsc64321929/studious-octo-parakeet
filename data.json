@@ -1,69 +1,1203 @@
 {
- "title": "我的歌单",
- "updated": "2026/10/30 22:03:14",
+ "title": "速记谱歌单",
+ "updated": "2026/10/30 23:08:12",
  "playlists": {
-  "所有歌曲": [
+  "全部歌曲": [
    {
-    "title": "多年以后",
-    "artist": "黄静美"
-   },
-   {
-    "title": "美人鱼",
-    "artist": "林俊杰"
-   },
-   {
-    "title": "此生无憾",
-    "artist": "广东吴勇"
-   },
-   {
-    "title": "完美生活",
-    "artist": "许巍"
+    "title": "简单爱",
+    "artist": "周杰伦"
    },
    {
     "title": "玫瑰花的葬礼",
     "artist": "许嵩"
    },
    {
+    "title": "年轮",
+    "artist": "汪苏泷"
+   },
+   {
+    "title": "偏爱",
+    "artist": "张芸京"
+   },
+   {
+    "title": "囚鸟",
+    "artist": "张宇"
+   },
+   {
+    "title": "同人不同命",
+    "artist": "秦达"
+   },
+   {
+    "title": "忘记时间",
+    "artist": "胡歌"
+   },
+   {
+    "title": "唯一",
+    "artist": "邓紫棋"
+   },
+   {
+    "title": "我们之间",
+    "artist": "令狐聪"
+   },
+   {
+    "title": "小芳",
+    "artist": "李春波"
+   },
+   {
+    "title": "小美满",
+    "artist": "周深"
+   },
+   {
+    "title": "一厢情愿",
+    "artist": "令狐聪"
+   },
+   {
+    "title": "一心的爱",
+    "artist": "令狐聪"
+   },
+   {
+    "title": "因为爱所以爱",
+    "artist": "令狐聪"
+   },
+   {
+    "title": "雨一直下",
+    "artist": "张宇"
+   },
+   {
+    "title": "月光曲",
+    "artist": "陆虎"
+   },
+   {
+    "title": "月亮惹的祸",
+    "artist": "张宇"
+   },
+   {
+    "title": "只有你的从前",
+    "artist": "段林希"
+   },
+   {
+    "title": "报恩的九尾",
+    "artist": "丁乙"
+   },
+   {
+    "title": "说谎",
+    "artist": "林宥嘉"
+   },
+   {
+    "title": "可惜没如果",
+    "artist": "林俊杰"
+   },
+   {
+    "title": "嘉宾",
+    "artist": "张远"
+   },
+   {
+    "title": "南方姑娘",
+    "artist": "赵雷"
+   },
+   {
+    "title": "如愿",
+    "artist": "王菲"
+   },
+   {
+    "title": "后来",
+    "artist": "刘若英"
+   },
+   {
+    "title": "隐形的翅膀",
+    "artist": "张韶涵"
+   },
+   {
+    "title": "凉凉",
+    "artist": "张碧晨 / 杨宗纬"
+   },
+   {
+    "title": "洋葱",
+    "artist": "杨宗纬"
+   },
+   {
+    "title": "左手指月",
+    "artist": "萨顶顶"
+   },
+   {
+    "title": "牵丝戏",
+    "artist": "银临 / Aki阿杰"
+   },
+   {
+    "title": "赤伶",
+    "artist": "谭晶"
+   },
+   {
+    "title": "桃花诺",
+    "artist": "邓紫棋"
+   },
+   {
+    "title": "九张机",
+    "artist": "叶炫清"
+   },
+   {
+    "title": "第57次取消发送",
+    "artist": "菲菲公主（陆绮菲）"
+   },
+   {
+    "title": "沈园外",
+    "artist": "阿YueYue / 戾格 / 小田音乐社"
+   },
+   {
+    "title": "壁上观",
+    "artist": "鞠婧祎"
+   },
+   {
+    "title": "姑娘",
+    "artist": "陈楚生"
+   },
+   {
+    "title": "琵琶行",
+    "artist": "奇然 / 沈谧仁"
+   },
+   {
+    "title": "万疆",
+    "artist": "李玉刚"
+   },
+   {
+    "title": "天地龙鳞",
+    "artist": "王力宏"
+   },
+   {
+    "title": "天下",
+    "artist": "张杰"
+   },
+   {
+    "title": "孤勇者",
+    "artist": "陈奕迅"
+   },
+   {
+    "title": "一勺温柔喂时光",
+    "artist": "啊粘粘"
+   },
+   {
+    "title": "有形的翅膀",
+    "artist": "张韶涵"
+   },
+   {
+    "title": "代替",
+    "artist": "羊羊"
+   },
+   {
+    "title": "别知己",
+    "artist": "海来阿木"
+   },
+   {
+    "title": "如果累了就回故乡",
+    "artist": "ItaloRiders"
+   },
+   {
+    "title": "此生无憾",
+    "artist": "广东吴勇"
+   },
+   {
+    "title": "心碎（粤语版）",
+    "artist": "易欣"
+   },
+   {
+    "title": "曾经的你",
+    "artist": "许巍"
+   },
+   {
+    "title": "真的爱你",
+    "artist": "beyond"
+   },
+   {
+    "title": "千千阙歌",
+    "artist": "陈慧娴"
+   },
+   {
+    "title": "你的万水千山",
+    "artist": "海来阿木"
+   },
+   {
+    "title": "突然的自我",
+    "artist": "伍佰"
+   },
+   {
+    "title": "完美生活",
+    "artist": "许巍"
+   },
+   {
+    "title": "伤心太平洋",
+    "artist": "任贤齐"
+   },
+   {
+    "title": "阿果吉曲",
+    "artist": "海来阿木"
+   },
+   {
+    "title": "故乡",
+    "artist": "许巍"
+   },
+   {
+    "title": "西楼儿女",
+    "artist": "海来阿木"
+   },
+   {
+    "title": "心太软",
+    "artist": "任贤齐"
+   },
+   {
+    "title": "旅行",
+    "artist": "许巍"
+   },
+   {
+    "title": "光辉岁月",
+    "artist": "beyond"
+   },
+   {
+    "title": "心碎（国语版）",
+    "artist": "易欣"
+   },
+   {
+    "title": "Amani",
+    "artist": "beyond"
+   },
+   {
+    "title": "交换余生",
+    "artist": "林俊杰"
+   },
+   {
+    "title": "会开花的云",
+    "artist": "王樾安"
+   },
+   {
+    "title": "因为爱 所以爱",
+    "artist": "令狐聪"
+   },
+   {
+    "title": "温暖",
+    "artist": "许巍"
+   },
+   {
+    "title": "纯真",
+    "artist": "五月天"
+   },
+   {
+    "title": "小村庄月弯弯",
+    "artist": "晚月"
+   },
+   {
+    "title": "童年",
+    "artist": "罗大佑"
+   },
+   {
+    "title": "漂洋过海来看你",
+    "artist": "刘明湘"
+   },
+   {
+    "title": "同桌的你",
+    "artist": "老狼"
+   },
+   {
+    "title": "睡在我上铺的兄弟",
+    "artist": "老狼"
+   },
+   {
+    "title": "一生有你",
+    "artist": "水木年华"
+   },
+   {
+    "title": "春天里",
+    "artist": "汪峰"
+   },
+   {
+    "title": "如果这都不算爱",
+    "artist": "张学友"
+   },
+   {
+    "title": "肩上蝶",
+    "artist": "金志文/陈冰"
+   },
+   {
+    "title": "恋人",
+    "artist": "李荣浩"
+   },
+   {
+    "title": "海阔天空",
+    "artist": "beyond"
+   },
+   {
+    "title": "挪威的森林",
+    "artist": "伍佰"
+   },
+   {
+    "title": "十年",
+    "artist": "陈奕迅"
+   },
+   {
+    "title": "王招君",
+    "artist": "任素汐"
+   },
+   {
+    "title": "胡广生",
+    "artist": "任素汐"
+   },
+   {
+    "title": "枕着光的她",
+    "artist": "任素汐"
+   },
+   {
+    "title": "因为爱所以爱",
+    "artist": "谢霆锋"
+   },
+   {
+    "title": "单身情歌",
+    "artist": "林志炫"
+   },
+   {
+    "title": "成都",
+    "artist": "赵雷"
+   },
+   {
+    "title": "我们的时光",
+    "artist": "赵雷"
+   },
+   {
+    "title": "晴天",
+    "artist": "周杰伦"
+   },
+   {
+    "title": "彩虹",
+    "artist": "周杰伦"
+   },
+   {
+    "title": "有何不可",
+    "artist": "许嵩"
+   },
+   {
+    "title": "蓝莲花",
+    "artist": "许巍"
+   },
+   {
+    "title": "再见只是陌生人",
+    "artist": " 庄心妍"
+   },
+   {
+    "title": "一千个伤心的理由",
+    "artist": "张学友"
+   },
+   {
+    "title": "死不了",
+    "artist": "任贤齐"
+   },
+   {
+    "title": "曾是拥有",
+    "artist": "beyond"
+   },
+   {
+    "title": "大梦",
+    "artist": "瓦依那/任素汐"
+   },
+   {
+    "title": "忘了你忘了我",
+    "artist": "王杰"
+   },
+   {
+    "title": "三年的赌注",
+    "artist": "广东雨神"
+   },
+   {
+    "title": "与你到永久",
+    "artist": "伍佰"
+   },
+   {
+    "title": "前任租客",
+    "artist": "欢子 / 李慧珍"
+   },
+   {
+    "title": "执着",
+    "artist": "许巍"
+   },
+   {
+    "title": "最远的你是我最近的爱",
+    "artist": "车继铃"
+   },
+   {
+    "title": "放生",
+    "artist": "范逸臣"
+   },
+   {
+    "title": "一亿个伤心",
+    "artist": "蒙面哥"
+   },
+   {
+    "title": "庙堂之外",
+    "artist": "陈楚生"
+   },
+   {
+    "title": "断桥残雪",
+    "artist": "许嵩"
+   },
+   {
+    "title": "南山南",
+    "artist": "张磊"
+   },
+   {
     "title": "当爱",
     "artist": "黄霄云"
    },
    {
-    "title": "前任租客",
-    "artist": "欢子/李慧珍"
+    "title": "泸沽湖",
+    "artist": "麻园诗人"
+   },
+   {
+    "title": "等一分钟",
+    "artist": "徐誉腾"
+   },
+   {
+    "title": "谢谢你的爱1999",
+    "artist": "谢霆锋"
+   },
+   {
+    "title": "喜欢你",
+    "artist": "beyond"
+   },
+   {
+    "title": "孤独",
+    "artist": "宾阳乐队"
+   },
+   {
+    "title": "心愿",
+    "artist": "四个女生"
    },
    {
     "title": "星月神话",
     "artist": "金莎"
    },
    {
-    "title": "同桌的你",
-    "artist": "老狼"
-   }
-  ],
-  "欢迎点我们的歌": [
+    "title": "晚风",
+    "artist": "伍佰"
+   },
+   {
+    "title": "多年以后",
+    "artist": "姜育恒"
+   },
+   {
+    "title": "多年以后",
+    "artist": "大欢"
+   },
    {
     "title": "多年以后",
     "artist": "黄静美"
+   },
+   {
+    "title": "可能",
+    "artist": "程响"
    },
    {
     "title": "美人鱼",
     "artist": "林俊杰"
    },
    {
-    "title": "此生无憾",
-    "artist": "广东吴勇"
-   },
+    "title": "只要平凡",
+    "artist": "张杰 / 张碧晨"
+   }
+  ],
+  "临时歌单": [
    {
-    "title": "完美生活",
-    "artist": "许巍"
+    "title": "简单爱",
+    "artist": "周杰伦"
    },
    {
     "title": "玫瑰花的葬礼",
     "artist": "许嵩"
    },
    {
+    "title": "年轮",
+    "artist": "汪苏泷"
+   },
+   {
+    "title": "偏爱",
+    "artist": "张芸京"
+   },
+   {
+    "title": "囚鸟",
+    "artist": "张宇"
+   },
+   {
+    "title": "同人不同命",
+    "artist": "秦达"
+   },
+   {
+    "title": "忘记时间",
+    "artist": "胡歌"
+   },
+   {
+    "title": "唯一",
+    "artist": "邓紫棋"
+   },
+   {
+    "title": "我们之间",
+    "artist": "令狐聪"
+   },
+   {
+    "title": "小芳",
+    "artist": "李春波"
+   },
+   {
+    "title": "小美满",
+    "artist": "周深"
+   },
+   {
+    "title": "一厢情愿",
+    "artist": "令狐聪"
+   },
+   {
+    "title": "一心的爱",
+    "artist": "令狐聪"
+   },
+   {
+    "title": "因为爱所以爱",
+    "artist": "令狐聪"
+   },
+   {
+    "title": "雨一直下",
+    "artist": "张宇"
+   },
+   {
+    "title": "月光曲",
+    "artist": "陆虎"
+   },
+   {
+    "title": "月亮惹的祸",
+    "artist": "张宇"
+   },
+   {
+    "title": "只有你的从前",
+    "artist": "段林希"
+   },
+   {
+    "title": "报恩的九尾",
+    "artist": "丁乙"
+   },
+   {
+    "title": "说谎",
+    "artist": "林宥嘉"
+   },
+   {
+    "title": "可惜没如果",
+    "artist": "林俊杰"
+   },
+   {
+    "title": "嘉宾",
+    "artist": "张远"
+   },
+   {
+    "title": "南方姑娘",
+    "artist": "赵雷"
+   },
+   {
+    "title": "如愿",
+    "artist": "王菲"
+   },
+   {
+    "title": "后来",
+    "artist": "刘若英"
+   },
+   {
+    "title": "隐形的翅膀",
+    "artist": "张韶涵"
+   },
+   {
+    "title": "凉凉",
+    "artist": "张碧晨 / 杨宗纬"
+   },
+   {
+    "title": "洋葱",
+    "artist": "杨宗纬"
+   },
+   {
+    "title": "左手指月",
+    "artist": "萨顶顶"
+   },
+   {
+    "title": "牵丝戏",
+    "artist": "银临 / Aki阿杰"
+   },
+   {
+    "title": "赤伶",
+    "artist": "谭晶"
+   },
+   {
+    "title": "桃花诺",
+    "artist": "邓紫棋"
+   },
+   {
+    "title": "九张机",
+    "artist": "叶炫清"
+   },
+   {
+    "title": "第57次取消发送",
+    "artist": "菲菲公主（陆绮菲）"
+   },
+   {
+    "title": "沈园外",
+    "artist": "阿YueYue / 戾格 / 小田音乐社"
+   },
+   {
+    "title": "壁上观",
+    "artist": "鞠婧祎"
+   },
+   {
+    "title": "姑娘",
+    "artist": "陈楚生"
+   },
+   {
+    "title": "琵琶行",
+    "artist": "奇然 / 沈谧仁"
+   },
+   {
+    "title": "万疆",
+    "artist": "李玉刚"
+   },
+   {
+    "title": "天地龙鳞",
+    "artist": "王力宏"
+   },
+   {
+    "title": "天下",
+    "artist": "张杰"
+   },
+   {
+    "title": "孤勇者",
+    "artist": "陈奕迅"
+   },
+   {
+    "title": "一勺温柔喂时光",
+    "artist": "啊粘粘"
+   },
+   {
+    "title": "有形的翅膀",
+    "artist": "张韶涵"
+   },
+   {
+    "title": "代替",
+    "artist": "羊羊"
+   },
+   {
+    "title": "别知己",
+    "artist": "海来阿木"
+   },
+   {
+    "title": "如果累了就回故乡",
+    "artist": "ItaloRiders"
+   }
+  ],
+  "默认歌单": [
+   {
+    "title": "此生无憾",
+    "artist": "广东吴勇"
+   },
+   {
+    "title": "心碎（粤语版）",
+    "artist": "易欣"
+   },
+   {
+    "title": "曾经的你",
+    "artist": "许巍"
+   },
+   {
+    "title": "真的爱你",
+    "artist": "beyond"
+   },
+   {
+    "title": "千千阙歌",
+    "artist": "陈慧娴"
+   },
+   {
+    "title": "你的万水千山",
+    "artist": "海来阿木"
+   },
+   {
+    "title": "突然的自我",
+    "artist": "伍佰"
+   },
+   {
+    "title": "完美生活",
+    "artist": "许巍"
+   },
+   {
+    "title": "伤心太平洋",
+    "artist": "任贤齐"
+   },
+   {
+    "title": "阿果吉曲",
+    "artist": "海来阿木"
+   },
+   {
+    "title": "故乡",
+    "artist": "许巍"
+   },
+   {
+    "title": "西楼儿女",
+    "artist": "海来阿木"
+   },
+   {
+    "title": "心太软",
+    "artist": "任贤齐"
+   },
+   {
+    "title": "旅行",
+    "artist": "许巍"
+   },
+   {
+    "title": "光辉岁月",
+    "artist": "beyond"
+   },
+   {
+    "title": "心碎（国语版）",
+    "artist": "易欣"
+   },
+   {
+    "title": "Amani",
+    "artist": "beyond"
+   },
+   {
+    "title": "交换余生",
+    "artist": "林俊杰"
+   },
+   {
+    "title": "会开花的云",
+    "artist": "王樾安"
+   },
+   {
+    "title": "因为爱 所以爱",
+    "artist": "令狐聪"
+   },
+   {
+    "title": "温暖",
+    "artist": "许巍"
+   },
+   {
+    "title": "纯真",
+    "artist": "五月天"
+   },
+   {
+    "title": "小村庄月弯弯",
+    "artist": "晚月"
+   },
+   {
+    "title": "童年",
+    "artist": "罗大佑"
+   },
+   {
+    "title": "漂洋过海来看你",
+    "artist": "刘明湘"
+   },
+   {
+    "title": "同桌的你",
+    "artist": "老狼"
+   },
+   {
+    "title": "睡在我上铺的兄弟",
+    "artist": "老狼"
+   },
+   {
+    "title": "一生有你",
+    "artist": "水木年华"
+   },
+   {
+    "title": "春天里",
+    "artist": "汪峰"
+   },
+   {
+    "title": "如果这都不算爱",
+    "artist": "张学友"
+   },
+   {
+    "title": "肩上蝶",
+    "artist": "金志文/陈冰"
+   },
+   {
+    "title": "恋人",
+    "artist": "李荣浩"
+   },
+   {
+    "title": "海阔天空",
+    "artist": "beyond"
+   },
+   {
+    "title": "挪威的森林",
+    "artist": "伍佰"
+   },
+   {
+    "title": "十年",
+    "artist": "陈奕迅"
+   },
+   {
+    "title": "王招君",
+    "artist": "任素汐"
+   },
+   {
+    "title": "胡广生",
+    "artist": "任素汐"
+   },
+   {
+    "title": "枕着光的她",
+    "artist": "任素汐"
+   },
+   {
+    "title": "因为爱所以爱",
+    "artist": "谢霆锋"
+   },
+   {
+    "title": "单身情歌",
+    "artist": "林志炫"
+   },
+   {
+    "title": "成都",
+    "artist": "赵雷"
+   },
+   {
+    "title": "我们的时光",
+    "artist": "赵雷"
+   },
+   {
+    "title": "晴天",
+    "artist": "周杰伦"
+   },
+   {
+    "title": "彩虹",
+    "artist": "周杰伦"
+   },
+   {
+    "title": "有何不可",
+    "artist": "许嵩"
+   },
+   {
+    "title": "蓝莲花",
+    "artist": "许巍"
+   },
+   {
+    "title": "再见只是陌生人",
+    "artist": " 庄心妍"
+   },
+   {
+    "title": "一千个伤心的理由",
+    "artist": "张学友"
+   },
+   {
+    "title": "死不了",
+    "artist": "任贤齐"
+   },
+   {
+    "title": "曾是拥有",
+    "artist": "beyond"
+   },
+   {
+    "title": "大梦",
+    "artist": "瓦依那/任素汐"
+   },
+   {
+    "title": "忘了你忘了我",
+    "artist": "王杰"
+   },
+   {
+    "title": "三年的赌注",
+    "artist": "广东雨神"
+   },
+   {
+    "title": "与你到永久",
+    "artist": "伍佰"
+   },
+   {
+    "title": "前任租客",
+    "artist": "欢子 / 李慧珍"
+   },
+   {
+    "title": "执着",
+    "artist": "许巍"
+   },
+   {
+    "title": "最远的你是我最近的爱",
+    "artist": "车继铃"
+   },
+   {
+    "title": "放生",
+    "artist": "范逸臣"
+   },
+   {
+    "title": "一亿个伤心",
+    "artist": "蒙面哥"
+   },
+   {
+    "title": "庙堂之外",
+    "artist": "陈楚生"
+   },
+   {
+    "title": "断桥残雪",
+    "artist": "许嵩"
+   },
+   {
+    "title": "南山南",
+    "artist": "张磊"
+   },
+   {
     "title": "当爱",
     "artist": "黄霄云"
+   },
+   {
+    "title": "泸沽湖",
+    "artist": "麻园诗人"
+   },
+   {
+    "title": "等一分钟",
+    "artist": "徐誉腾"
+   },
+   {
+    "title": "谢谢你的爱1999",
+    "artist": "谢霆锋"
+   },
+   {
+    "title": "喜欢你",
+    "artist": "beyond"
+   },
+   {
+    "title": "孤独",
+    "artist": "宾阳乐队"
+   },
+   {
+    "title": "心愿",
+    "artist": "四个女生"
+   },
+   {
+    "title": "星月神话",
+    "artist": "金莎"
+   },
+   {
+    "title": "晚风",
+    "artist": "伍佰"
+   },
+   {
+    "title": "多年以后",
+    "artist": "姜育恒"
+   },
+   {
+    "title": "多年以后",
+    "artist": "大欢"
+   },
+   {
+    "title": "多年以后",
+    "artist": "黄静美"
+   },
+   {
+    "title": "可能",
+    "artist": "程响"
+   },
+   {
+    "title": "美人鱼",
+    "artist": "林俊杰"
+   },
+   {
+    "title": "只要平凡",
+    "artist": "张杰 / 张碧晨"
+   }
+  ],
+  "路演": [
+   {
+    "title": "此生无憾",
+    "artist": "广东吴勇"
+   },
+   {
+    "title": "千千阙歌",
+    "artist": "陈慧娴"
+   },
+   {
+    "title": "曾是拥有",
+    "artist": "beyond"
+   },
+   {
+    "title": "完美生活",
+    "artist": "许巍"
+   },
+   {
+    "title": "谢谢你的爱1999",
+    "artist": "谢霆锋"
+   },
+   {
+    "title": "等一分钟",
+    "artist": "徐誉腾"
+   },
+   {
+    "title": "光辉岁月",
+    "artist": "beyond"
+   },
+   {
+    "title": "我们的时光",
+    "artist": "赵雷"
+   },
+   {
+    "title": "忘了你忘了我",
+    "artist": "王杰"
+   },
+   {
+    "title": "蓝莲花",
+    "artist": "许巍"
+   },
+   {
+    "title": "旅行",
+    "artist": "许巍"
+   },
+   {
+    "title": "三年的赌注",
+    "artist": "广东雨神"
+   },
+   {
+    "title": "真的爱你",
+    "artist": "beyond"
+   },
+   {
+    "title": "阿果吉曲",
+    "artist": "海来阿木"
+   },
+   {
+    "title": "伤心太平洋",
+    "artist": "任贤齐"
+   },
+   {
+    "title": "故乡",
+    "artist": "许巍"
+   },
+   {
+    "title": "你的万水千山",
+    "artist": "海来阿木"
+   },
+   {
+    "title": "与你到永久",
+    "artist": "伍佰"
+   },
+   {
+    "title": "曾经的你",
+    "artist": "许巍"
+   },
+   {
+    "title": "突然的自我",
+    "artist": "伍佰"
+   },
+   {
+    "title": "最远的你是我最近的爱",
+    "artist": "车继铃"
+   },
+   {
+    "title": "西楼儿女",
+    "artist": "海来阿木"
+   },
+   {
+    "title": "海阔天空",
+    "artist": "beyond"
+   },
+   {
+    "title": "喜欢你",
+    "artist": "beyond"
+   },
+   {
+    "title": "孤独",
+    "artist": "宾阳乐队"
+   },
+   {
+    "title": "单身情歌",
+    "artist": "林志炫"
+   },
+   {
+    "title": "晚风",
+    "artist": "伍佰"
+   }
+  ],
+  "独唱曲目": [
+   {
+    "title": "交换余生",
+    "artist": "林俊杰"
+   },
+   {
+    "title": "会开花的云",
+    "artist": "王樾安"
+   },
+   {
+    "title": "因为爱 所以爱",
+    "artist": "令狐聪"
+   },
+   {
+    "title": "小村庄月弯弯",
+    "artist": "晚月"
+   },
+   {
+    "title": "漂洋过海来看你",
+    "artist": "刘明湘"
+   },
+   {
+    "title": "同桌的你",
+    "artist": "老狼"
+   },
+   {
+    "title": "睡在我上铺的兄弟",
+    "artist": "老狼"
+   },
+   {
+    "title": "一生有你",
+    "artist": "水木年华"
+   },
+   {
+    "title": "肩上蝶",
+    "artist": "金志文/陈冰"
+   },
+   {
+    "title": "王招君",
+    "artist": "任素汐"
+   },
+   {
+    "title": "胡广生",
+    "artist": "任素汐"
+   },
+   {
+    "title": "有何不可",
+    "artist": "许嵩"
+   },
+   {
+    "title": "大梦",
+    "artist": "瓦依那/任素汐"
+   },
+   {
+    "title": "前任租客",
+    "artist": "欢子 / 李慧珍"
+   },
+   {
+    "title": "一亿个伤心",
+    "artist": "蒙面哥"
+   },
+   {
+    "title": "断桥残雪",
+    "artist": "许嵩"
+   },
+   {
+    "title": "当爱",
+    "artist": "黄霄云"
+   },
+   {
+    "title": "泸沽湖",
+    "artist": "麻园诗人"
+   },
+   {
+    "title": "心愿",
+    "artist": "四个女生"
+   },
+   {
+    "title": "星月神话",
+    "artist": "金莎"
+   },
+   {
+    "title": "美人鱼",
+    "artist": "林俊杰"
+   },
+   {
+    "title": "只要平凡",
+    "artist": "张杰 / 张碧晨"
    }
   ]
  }

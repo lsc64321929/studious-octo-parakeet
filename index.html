@@ -1,1 +1,94 @@
-"<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>速记谱歌单</title>\n<style>\n*{margin:0;padding:0;box-sizing:border-box}\nbody{font-family:-apple-system,\"PingFang SC\",\"Microsoft YaHei\",sans-serif;background:#0f1419;color:#e8eef5;min-height:100vh}\n.wrap{max-width:760px;margin:0 auto;padding:16px 14px}\nh1{font-size:26px;margin-bottom:4px}\n.sub{color:#8a94a6;font-size:13px;margin-bottom:14px}\n.bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}\n.btn{flex:1 1 auto;min-width:0;padding:9px 6px;border:1px solid #263040;border-radius:8px;background:#1a2230;color:#c8d2e0;font-size:13px;cursor:pointer;text-align:center;word-break:keep-all}\n.btn:active{background:#22304a}\n.song{padding:12px;border-bottom:1px solid #1e2735;font-size:16px;line-height:1.5;word-break:break-all}\n.none{color:#8a94a6;font-size:14px;padding:24px 0;text-align:center}\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n<h1>速记谱歌单</h1>\n<div class=\"sub\" id=\"sub\">加载中…</div>\n<div class=\"bar\">\n<button class=\"btn\" id=\"sortBtn\" type=\"button\">按歌曲名</button>\n<button class=\"btn\" id=\"fmtBtn\" type=\"button\">歌曲名-歌手名</button>\n</div>\n<div id=\"list\"></div>\n</div>\n<script>\n(function(){\n  var DATA='data.json';\n  var OPT_KEY='sujipu_view_opt';\n  var opt={sort:'title', fmt:'t-a'};\n  try{ var _s=localStorage.getItem(OPT_KEY); if(_s){ var _o=JSON.parse(_s); if(_o&&(_o.sort==='title'||_o.sort==='artist')) opt.sort=_o.sort; if(_o&&(_o.fmt==='t-a'||_o.fmt==='a-t')) opt.fmt=_o.fmt; } }catch(e){}\n  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}\n  var _cache=null;\n  function saveOpt(){ try{ localStorage.setItem(OPT_KEY, JSON.stringify(opt)); }catch(e){} }\n  function songLine(s){\n    var t=esc((s&&s.title)||''), a=esc((s&&s.artist)||'');\n    if(!a) return t;\n    return opt.fmt==='t-a' ? (t+' - '+a) : (a+' - '+t);\n  }\n  function render(){\n    var el=document.getElementById('list');\n    if(!_cache){ el.innerHTML='<div class=\"none\">加载中…</div>'; return; }\n    var songs=_cache.slice();\n    songs.sort(function(x,y){\n      var a=opt.sort==='artist' ? String(x.artist||'') : String(x.title||'');\n      var b=opt.sort==='artist' ? String(y.artist||'') : String(y.title||'');\n      var c=a.localeCompare(b,'zh-CN',{numeric:true});\n      if(c!==0) return c;\n      return String(x.title||'').localeCompare(String(y.title||''),'zh-CN',{numeric:true});\n    });\n    if(!songs.length){ el.innerHTML='<div class=\"none\">歌单还是空的</div>'; return; }\n    var html='';\n    songs.forEach(function(s){ html+='<div class=\"song\">'+songLine(s)+'</div>'; });\n    el.innerHTML=html;\n  }\n  function load(){\n    fetch(DATA+'?t='+Date.now()).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); }).then(function(d){\n      document.getElementById('sub').textContent='更新于 '+(d.updated||'未知');\n      var pls=d.playlists||{};\n      var names=Object.keys(pls);\n      var songs=[];\n      names.forEach(function(k){ (pls[k]||[]).forEach(function(s){ songs.push(s); }); });\n      var seen={}, uniq=[];\n      songs.forEach(function(s){\n        var t=String((s&&s.title)||'').trim(), a=String((s&&s.artist)||'').trim();\n        var key=t+'\\u0001'+a;\n        if(!t||seen[key]) return;\n        seen[key]=true; uniq.push({title:t, artist:a});\n      });\n      _cache=uniq;\n      render();\n    }).catch(function(e){\n      document.getElementById('list').innerHTML='<div class=\"none\">加载失败：'+(e&&e.message||'网络异常')+'</div>';\n      document.getElementById('sub').textContent='';\n    });\n  }\n  var sortBtn=document.getElementById('sortBtn');\n  var fmtBtn=document.getElementById('fmtBtn');\n  function syncBtns(){\n    sortBtn.textContent=opt.sort==='artist'?'按歌手名':'按歌曲名';\n    fmtBtn.textContent=opt.fmt==='a-t'?'歌手名-歌曲名':'歌曲名-歌手名';\n  }\n  sortBtn.addEventListener('click', function(){ opt.sort=(opt.sort==='title')?'artist':'title'; saveOpt(); syncBtns(); render(); });\n  fmtBtn.addEventListener('click', function(){ opt.fmt=(opt.fmt==='t-a')?'a-t':'t-a'; saveOpt(); syncBtns(); render(); });\n  syncBtns();\n  load();\n})();\n</script>\n</body>\n</html>\n"
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>速记谱歌单</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#0f1419;color:#e8eef5;min-height:100vh}
+.wrap{max-width:760px;margin:0 auto;padding:16px 14px}
+h1{font-size:26px;margin-bottom:4px}
+.sub{color:#8a94a6;font-size:13px;margin-bottom:14px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.btn{flex:1 1 auto;min-width:0;padding:9px 6px;border:1px solid #263040;border-radius:8px;background:#1a2230;color:#c8d2e0;font-size:13px;cursor:pointer;text-align:center;word-break:keep-all}
+.btn:active{background:#22304a}
+.song{padding:12px;border-bottom:1px solid #1e2735;font-size:16px;line-height:1.5;word-break:break-all}
+.none{color:#8a94a6;font-size:14px;padding:24px 0;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>速记谱歌单</h1>
+<div class="sub" id="sub">加载中…</div>
+<div class="bar">
+<button class="btn" id="sortBtn" type="button">按歌曲名</button>
+<button class="btn" id="fmtBtn" type="button">歌曲名-歌手名</button>
+</div>
+<div id="list"></div>
+</div>
+<script>
+(function(){
+  var DATA='data.json';
+  var OPT_KEY='sujipu_view_opt';
+  var opt={sort:'title', fmt:'t-a'};
+  try{ var _s=localStorage.getItem(OPT_KEY); if(_s){ var _o=JSON.parse(_s); if(_o&&(_o.sort==='title'||_o.sort==='artist')) opt.sort=_o.sort; if(_o&&(_o.fmt==='t-a'||_o.fmt==='a-t')) opt.fmt=_o.fmt; } }catch(e){}
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  var _cache=null;
+  function saveOpt(){ try{ localStorage.setItem(OPT_KEY, JSON.stringify(opt)); }catch(e){} }
+  function songLine(s){
+    var t=esc((s&&s.title)||''), a=esc((s&&s.artist)||'');
+    if(!a) return t;
+    return opt.fmt==='t-a' ? (t+' - '+a) : (a+' - '+t);
+  }
+  function render(){
+    var el=document.getElementById('list');
+    if(!_cache){ el.innerHTML='<div class="none">加载中…</div>'; return; }
+    var songs=_cache.slice();
+    songs.sort(function(x,y){
+      var a=opt.sort==='artist' ? String(x.artist||'') : String(x.title||'');
+      var b=opt.sort==='artist' ? String(y.artist||'') : String(y.title||'');
+      var c=a.localeCompare(b,'zh-CN',{numeric:true});
+      if(c!==0) return c;
+      return String(x.title||'').localeCompare(String(y.title||''),'zh-CN',{numeric:true});
+    });
+    if(!songs.length){ el.innerHTML='<div class="none">歌单还是空的</div>'; return; }
+    var html='';
+    songs.forEach(function(s){ html+='<div class="song">'+songLine(s)+'</div>'; });
+    el.innerHTML=html;
+  }
+  function load(){
+    fetch(DATA+'?t='+Date.now()).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); }).then(function(d){
+      document.getElementById('sub').textContent='更新于 '+(d.updated||'未知');
+      var pls=d.playlists||{};
+      var names=Object.keys(pls);
+      var songs=[];
+      names.forEach(function(k){ (pls[k]||[]).forEach(function(s){ songs.push(s); }); });
+      var seen={}, uniq=[];
+      songs.forEach(function(s){
+        var t=String((s&&s.title)||'').trim(), a=String((s&&s.artist)||'').trim();
+        var key=t+'\u0001'+a;
+        if(!t||seen[key]) return;
+        seen[key]=true; uniq.push({title:t, artist:a});
+      });
+      _cache=uniq;
+      render();
+    }).catch(function(e){
+      document.getElementById('list').innerHTML='<div class="none">加载失败：'+(e&&e.message||'网络异常')+'</div>';
+      document.getElementById('sub').textContent='';
+    });
+  }
+  var sortBtn=document.getElementById('sortBtn');
+  var fmtBtn=document.getElementById('fmtBtn');
+  function syncBtns(){
+    sortBtn.textContent=opt.sort==='artist'?'按歌手名':'按歌曲名';
+    fmtBtn.textContent=opt.fmt==='a-t'?'歌手名-歌曲名':'歌曲名-歌手名';
+  }
+  sortBtn.addEventListener('click', function(){ opt.sort=(opt.sort==='title')?'artist':'title'; saveOpt(); syncBtns(); render(); });
+  fmtBtn.addEventListener('click', function(){ opt.fmt=(opt.fmt==='t-a')?'a-t':'t-a'; saveOpt(); syncBtns(); render(); });
+  syncBtns();
+  load();
+})();
+</script>
+</body>
+</html>

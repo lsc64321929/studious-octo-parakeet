@@ -3,14 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>速记谱歌单</title>
+<title>欢迎来点歌</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#0f1419;color:#e8eef5;min-height:100vh}
 .wrap{max-width:760px;margin:0 auto;padding:16px 14px}
 h1{font-size:26px;margin-bottom:4px}
+.remark{color:#b8c2d0;font-size:13px;background:#16202e;border:1px solid #263040;border-radius:8px;padding:8px 12px;margin-bottom:12px;line-height:1.6}
 .sub{color:#8a94a6;font-size:13px;margin-bottom:14px}
 .bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.search{flex:1 1 100%;min-width:0;padding:10px 12px;border:1px solid #263040;border-radius:8px;background:#1a2230;color:#e8eef5;font-size:14px;outline:none}
+.search::placeholder{color:#8a94a6}
 .btn{flex:1 1 auto;min-width:0;padding:9px 6px;border:1px solid #263040;border-radius:8px;background:#1a2230;color:#c8d2e0;font-size:13px;cursor:pointer;text-align:center;word-break:keep-all}
 .btn:active{background:#22304a}
 .song{padding:12px;border-bottom:1px solid #1e2735;font-size:16px;line-height:1.5;word-break:break-all}
@@ -19,11 +22,12 @@ h1{font-size:26px;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>速记谱歌单</h1>
+<h1>欢迎来点歌</h1>
+<div class="remark" id="remark"></div>
 <div class="sub" id="sub">加载中…</div>
 <div class="bar">
+<input type="search" class="search" id="searchInput" placeholder="搜索歌曲名或歌手名">
 <button class="btn" id="sortBtn" type="button">按歌曲名</button>
-<button class="btn" id="fmtBtn" type="button">歌曲名-歌手名</button>
 </div>
 <div id="list"></div>
 </div>
@@ -31,15 +35,15 @@ h1{font-size:26px;margin-bottom:4px}
 (function(){
   var DATA='data.json';
   var OPT_KEY='sujipu_view_opt';
-  var opt={sort:'title', fmt:'t-a'};
-  try{ var _s=localStorage.getItem(OPT_KEY); if(_s){ var _o=JSON.parse(_s); if(_o&&(_o.sort==='title'||_o.sort==='artist')) opt.sort=_o.sort; if(_o&&(_o.fmt==='t-a'||_o.fmt==='a-t')) opt.fmt=_o.fmt; } }catch(e){}
+  var opt={sort:'title'};
+  try{ var _s=localStorage.getItem(OPT_KEY); if(_s){ var _o=JSON.parse(_s); if(_o&&(_o.sort==='title'||_o.sort==='artist')) opt.sort=_o.sort; } }catch(e){}
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
   var _cache=null;
   function saveOpt(){ try{ localStorage.setItem(OPT_KEY, JSON.stringify(opt)); }catch(e){} }
   function songLine(s){
     var t=esc((s&&s.title)||''), a=esc((s&&s.artist)||'');
     if(!a) return t;
-    return opt.fmt==='t-a' ? (t+' - '+a) : (a+' - '+t);
+    return t+' - '+a;
   }
   function render(){
     var el=document.getElementById('list');
@@ -52,6 +56,11 @@ h1{font-size:26px;margin-bottom:4px}
       if(c!==0) return c;
       return String(x.title||'').localeCompare(String(y.title||''),'zh-CN',{numeric:true});
     });
+    var q=(document.getElementById('searchInput').value||'').trim().toLowerCase();
+    if(q){
+      songs=songs.filter(function(x){ var t=String(x.title||'').toLowerCase(), a=String(x.artist||'').toLowerCase(); return t.indexOf(q)>=0||a.indexOf(q)>=0; });
+      if(!songs.length){ el.innerHTML='<div class="none">没有找到与「'+esc(q)+'」相关的歌曲</div>'; return; }
+    }
     if(!songs.length){ el.innerHTML='<div class="none">歌单还是空的</div>'; return; }
     var html='';
     songs.forEach(function(s){ html+='<div class="song">'+songLine(s)+'</div>'; });
@@ -60,6 +69,7 @@ h1{font-size:26px;margin-bottom:4px}
   function load(){
     fetch(DATA+'?t='+Date.now()).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); }).then(function(d){
       document.getElementById('sub').textContent='更新于 '+(d.updated||'未知');
+      var rm=document.getElementById('remark'); if(rm) rm.textContent=d.remark||'如果你想点歌，请与乐手或者工作人员联系。';
       var pls=d.playlists||{};
       var names=Object.keys(pls);
       var songs=[];
@@ -79,13 +89,12 @@ h1{font-size:26px;margin-bottom:4px}
     });
   }
   var sortBtn=document.getElementById('sortBtn');
-  var fmtBtn=document.getElementById('fmtBtn');
   function syncBtns(){
     sortBtn.textContent=opt.sort==='artist'?'按歌手名':'按歌曲名';
-    fmtBtn.textContent=opt.fmt==='a-t'?'歌手名-歌曲名':'歌曲名-歌手名';
   }
   sortBtn.addEventListener('click', function(){ opt.sort=(opt.sort==='title')?'artist':'title'; saveOpt(); syncBtns(); render(); });
-  fmtBtn.addEventListener('click', function(){ opt.fmt=(opt.fmt==='t-a')?'a-t':'t-a'; saveOpt(); syncBtns(); render(); });
+  var searchInput=document.getElementById('searchInput');
+  if(searchInput) searchInput.addEventListener('input', render);
   syncBtns();
   load();
 })();

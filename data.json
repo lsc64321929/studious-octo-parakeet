@@ -1,6 +1,124 @@
 {
  "title": "邕江边乐手 点歌台",
- "updated": "2026/11/4 11:31:16",
+ "updated": "2026/11/4 11:34:08",
  "remark": "如果你想点歌，请与乐手或者工作人员联系。",
- "playlists": {}
+ "playlists": {
+  "独唱曲目": [
+   {
+    "title": "交换余生",
+    "artist": "林俊杰",
+    "lyrics": ""
+   },
+   {
+    "title": "会开花的云",
+    "artist": "王樾安",
+    "lyrics": ""
+   },
+   {
+    "title": "因为爱 所以爱",
+    "artist": "令狐聪",
+    "lyrics": ""
+   },
+   {
+    "title": "小村庄月弯弯",
+    "artist": "晚月",
+    "lyrics": ""
+   },
+   {
+    "title": "漂洋过海来看你",
+    "artist": "刘明湘",
+    "lyrics": ""
+   },
+   {
+    "title": "同桌的你",
+    "artist": "老狼",
+    "lyrics": ""
+   },
+   {
+    "title": "睡在我上铺的兄弟",
+    "artist": "老狼",
+    "lyrics": ""
+   },
+   {
+    "title": "一生有你",
+    "artist": "水木年华",
+    "lyrics": ""
+   },
+   {
+    "title": "肩上蝶",
+    "artist": "金志文/陈冰",
+    "lyrics": ""
+   },
+   {
+    "title": "王招君",
+    "artist": "任素汐",
+    "lyrics": ""
+   },
+   {
+    "title": "胡广生",
+    "artist": "任素汐",
+    "lyrics": ""
+   },
+   {
+    "title": "有何不可",
+    "artist": "许嵩",
+    "lyrics": ""
+   },
+   {
+    "title": "大梦",
+    "artist": "瓦依那/任素汐",
+    "lyrics": ""
+   },
+   {
+    "title": "前任租客",
+    "artist": "欢子 / 李慧珍",
+    "lyrics": ""
+   },
+   {
+    "title": "一亿个伤心",
+    "artist": "蒙面哥",
+    "lyrics": ""
+   },
+   {
+    "title": "断桥残雪",
+    "artist": "许嵩",
+    "lyrics": ""
+   },
+   {
+    "title": "当爱",
+    "artist": "黄霄云",
+    "lyrics": ""
+   },
+   {
+    "title": "泸沽湖",
+    "artist": "麻园诗人",
+    "lyrics": ""
+   },
+   {
+    "title": "心愿",
+    "artist": "四个女生",
+    "lyrics": ""
+   },
+   {
+    "title": "星月神话",
+    "artist": "金莎",
+    "lyrics": ""
+   },
+   {
+    "title": "美人鱼",
+    "artist": "林俊杰",
+    "lyrics": ""
+   },
+   {
+    "title": "只要平凡",
+    "artist": "张杰 / 张碧晨",
+    "lyrics": ""
+   },
+   {
+    "title": "给你们",
+    "artist": "张宇",
+    "lyrics": ""
+   }
+  ]
+ }
 }

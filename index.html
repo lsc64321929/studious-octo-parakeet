@@ -16,13 +16,22 @@ h1{font-size:26px;margin-bottom:4px}
 .search::placeholder{color:#8a94a6}
 .btn{flex:1 1 auto;min-width:0;padding:9px 6px;border:1px solid #263040;border-radius:8px;background:#1a2230;color:#c8d2e0;font-size:13px;cursor:pointer;text-align:center;word-break:keep-all}
 .btn:active{background:#22304a}
-.song{padding:12px;border-bottom:1px solid #1e2735;font-size:16px;line-height:1.5;word-break:break-all}
+.song{padding:12px;border-bottom:1px solid #1e2735;font-size:16px;line-height:1.5;word-break:break-all;display:flex;align-items:center;gap:10px}
+.song-name{flex:1;min-width:0;word-break:break-all}
+.lbtn{flex:0 0 auto;padding:4px 10px;border:1px solid #263040;border-radius:6px;background:#1a2230;color:#c8d2e0;font-size:13px;cursor:pointer}
+.lbtn:active{background:#22304a}
+.lmodal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:99;padding:20px}
+.lmodal.open{display:flex}
+.lmodal-box{max-width:640px;width:100%;max-height:80vh;overflow:auto;background:#131a24;border:1px solid #263040;border-radius:12px;padding:16px 18px}
+.lmodal-title{font-size:17px;font-weight:600;margin-bottom:10px;color:#e8eef5}
+.lmodal-body{font-size:14px;line-height:2.0;color:#d6dee8;white-space:pre-wrap;word-break:break-word}
+.lmodal-close{margin-top:14px;padding:7px 14px;border:1px solid #263040;border-radius:8px;background:#1a2230;color:#c8d2e0;font-size:13px;cursor:pointer}
 .none{color:#8a94a6;font-size:14px;padding:24px 0;text-align:center}
 </style>
 </head>
 <body>
 <div class="wrap">
-<h1>欢迎来点歌</h1>
+<h1 id="title">欢迎来点歌</h1>
 <div class="remark" id="remark"></div>
 <div class="sub" id="sub">加载中…</div>
 <div class="bar">
@@ -31,6 +40,7 @@ h1{font-size:26px;margin-bottom:4px}
 </div>
 <div id="list"></div>
 </div>
+<div id="lmodal"><div class="lmodal-box"><div class="lmodal-title" id="lmodalTitle"></div><div class="lmodal-body" id="lmodalBody"></div><button class="lmodal-close" id="lmodalClose">关闭</button></div></div>
 <script>
 (function(){
   var DATA='data.json';
@@ -43,7 +53,7 @@ h1{font-size:26px;margin-bottom:4px}
   function songLine(s){
     var t=esc((s&&s.title)||''), a=esc((s&&s.artist)||'');
     if(!a) return t;
-    return t+' - '+a;
+    return (opt.sort==='artist') ? (a+' - '+t) : (t+' - '+a);
   }
   function render(){
     var el=document.getElementById('list');
@@ -63,12 +73,14 @@ h1{font-size:26px;margin-bottom:4px}
     }
     if(!songs.length){ el.innerHTML='<div class="none">歌单还是空的</div>'; return; }
     var html='';
-    songs.forEach(function(s){ html+='<div class="song">'+songLine(s)+'</div>'; });
+    songs.forEach(function(s,i){ var _ly=String((s&&s.lyrics)||'').trim(); html+='<div class="song"><span class="song-name">'+songLine(s)+'</span>'+( _ly?'<button class="lbtn" data-i="'+i+'">歌词</button>':'' )+'</div>'; });
     el.innerHTML=html;
+    Array.prototype.slice.call(el.querySelectorAll('.lbtn')).forEach(function(b){ b.addEventListener('click', function(){ var _s=songs[parseInt(b.getAttribute('data-i'),10)]; if(!_s) return; document.getElementById('lmodalTitle').textContent=songLine(_s); document.getElementById('lmodalBody').textContent=String(_s.lyrics||''); document.getElementById('lmodal').classList.add('open'); }); });
   }
   function load(){
     fetch(DATA+'?t='+Date.now()).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); }).then(function(d){
       document.getElementById('sub').textContent='更新于 '+(d.updated||'未知');
+      var ti=document.getElementById('title'); if(ti){ ti.textContent=d.title||'欢迎来点歌'; document.title=ti.textContent; }
       var rm=document.getElementById('remark'); if(rm) rm.textContent=d.remark||'如果你想点歌，请与乐手或者工作人员联系。';
       var pls=d.playlists||{};
       var names=Object.keys(pls);
@@ -79,7 +91,7 @@ h1{font-size:26px;margin-bottom:4px}
         var t=String((s&&s.title)||'').trim(), a=String((s&&s.artist)||'').trim();
         var key=t+'\u0001'+a;
         if(!t||seen[key]) return;
-        seen[key]=true; uniq.push({title:t, artist:a});
+        seen[key]=true; uniq.push({title:t, artist:a, lyrics: String((s&&s.lyrics)||'')});
       });
       _cache=uniq;
       render();
@@ -96,6 +108,10 @@ h1{font-size:26px;margin-bottom:4px}
   var searchInput=document.getElementById('searchInput');
   if(searchInput) searchInput.addEventListener('input', render);
   syncBtns();
+  var _lm=document.getElementById('lmodal');
+  if(_lm){ _lm.addEventListener('click', function(e){ if(e.target===_lm) _lm.classList.remove('open'); });
+    document.getElementById('lmodalClose').addEventListener('click', function(){ _lm.classList.remove('open'); });
+  }
   load();
 })();
 </script>

@@ -16,16 +16,19 @@ h1{font-size:26px;margin-bottom:4px}
 .search::placeholder{color:#8a94a6}
 .btn{flex:1 1 auto;min-width:0;padding:9px 6px;border:1px solid #263040;border-radius:8px;background:#1a2230;color:#c8d2e0;font-size:13px;cursor:pointer;text-align:center;word-break:keep-all}
 .btn:active{background:#22304a}
-.song{padding:12px;border-bottom:1px solid #1e2735;font-size:16px;line-height:1.5;word-break:break-all;display:flex;align-items:center;gap:10px}
+.song{padding:12px;border-bottom:1px solid #1e2735;font-size:16px;line-height:1.5;word-break:break-all;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
 .song-name{flex:1;min-width:0;word-break:break-all}
 .lbtn{flex:0 0 auto;padding:4px 10px;border:1px solid #263040;border-radius:6px;background:#1a2230;color:#c8d2e0;font-size:13px;cursor:pointer}
 .lbtn:active{background:#22304a}
-.lmodal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:99;padding:20px}
-.lmodal.open{display:flex}
-.lmodal-box{max-width:640px;width:100%;max-height:80vh;overflow:auto;background:#131a24;border:1px solid #263040;border-radius:12px;padding:16px 18px}
-.lmodal-title{font-size:17px;font-weight:600;margin-bottom:10px;color:#e8eef5}
-.lmodal-body{font-size:14px;line-height:2.0;color:#d6dee8;white-space:pre-wrap;word-break:break-word}
-.lmodal-close{margin-top:14px;padding:7px 14px;border:1px solid #263040;border-radius:8px;background:#1a2230;color:#c8d2e0;font-size:13px;cursor:pointer}
+.lbtn.open{background:#c8d2e0;color:#1a2230;border-color:#c8d2e0}
+.song.open{position:sticky;top:0;background:#0f1419;z-index:5;box-shadow:0 2px 8px rgba(0,0,0,.45)}
+.ldrawer{flex-basis:100%;width:100%;display:none;margin-top:10px;padding:10px 12px;background:#131a24;border:1px solid #263040;border-radius:8px}
+.ldrawer.open{display:block}
+.ldtool{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.ldminus,.ldplus{flex:0 0 auto;padding:2px 10px;border:1px solid #263040;border-radius:6px;background:#1a2230;color:#c8d2e0;font-size:14px;cursor:pointer}
+.ldminus:active,.ldplus:active{background:#22304a}
+.ldsize{font-size:12px;color:#8a94a6;min-width:24px;text-align:center}
+.ldbody{font-size:14px;line-height:2.0;color:#d6dee8;white-space:pre-wrap;word-break:break-word}
 .none{color:#8a94a6;font-size:14px;padding:24px 0;text-align:center}
 </style>
 </head>
@@ -40,13 +43,15 @@ h1{font-size:26px;margin-bottom:4px}
 </div>
 <div id="list"></div>
 </div>
-<div id="lmodal"><div class="lmodal-box"><div class="lmodal-title" id="lmodalTitle"></div><div class="lmodal-body" id="lmodalBody"></div><button class="lmodal-close" id="lmodalClose">关闭</button></div></div>
 <script>
 (function(){
   var DATA='data.json';
   var OPT_KEY='sujipu_view_opt';
   var opt={sort:'title'};
   try{ var _s=localStorage.getItem(OPT_KEY); if(_s){ var _o=JSON.parse(_s); if(_o&&(_o.sort==='title'||_o.sort==='artist')) opt.sort=_o.sort; } }catch(e){}
+  var lyricSize=14;
+  try{ var _ls=localStorage.getItem('sujipu_view_lyric_size'); if(_ls){ var _n=parseInt(_ls,10); if(_n&&_n>=12&&_n<=32) lyricSize=_n; } }catch(e){}
+  function saveLyricSize(){ try{ localStorage.setItem('sujipu_view_lyric_size', String(lyricSize)); }catch(e){} }
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
   var _cache=null;
   function saveOpt(){ try{ localStorage.setItem(OPT_KEY, JSON.stringify(opt)); }catch(e){} }
@@ -73,9 +78,21 @@ h1{font-size:26px;margin-bottom:4px}
     }
     if(!songs.length){ el.innerHTML='<div class="none">歌单还是空的</div>'; return; }
     var html='';
-    songs.forEach(function(s,i){ var _ly=String((s&&s.lyrics)||'').trim(); html+='<div class="song"><span class="song-name">'+songLine(s)+'</span>'+( _ly?'<button class="lbtn" data-i="'+i+'">歌词</button>':'' )+'</div>'; });
+    songs.forEach(function(s,i){
+      var _ly=String((s&&s.lyrics)||'').trim();
+      html+='<div class="song'+(s._open?' open':'')+'">';
+      html+='<span class="song-name">'+songLine(s)+'</span>';
+      if(_ly){
+        html+='<button class="lbtn'+(s._open?' open':'')+'" data-i="'+i+'" type="button">歌词</button>';
+        html+='<div class="ldrawer'+(s._open?' open':'')+'">';
+        html+='<div class="ldtool"><button class="ldminus" data-i="'+i+'" type="button">-</button><span class="ldsize">'+lyricSize+'</span><button class="ldplus" data-i="'+i+'" type="button">+</button></div>';
+        html+='<div class="ldbody" style="font-size:'+lyricSize+'px">'+esc(_ly)+'</div>';
+        html+='</div>';
+      }
+      html+='</div>';
+    });
     el.innerHTML=html;
-    Array.prototype.slice.call(el.querySelectorAll('.lbtn')).forEach(function(b){ b.addEventListener('click', function(){ var _s=songs[parseInt(b.getAttribute('data-i'),10)]; if(!_s) return; document.getElementById('lmodalTitle').textContent=songLine(_s); document.getElementById('lmodalBody').textContent=String(_s.lyrics||''); document.getElementById('lmodal').classList.add('open'); }); });
+    _lastSongs=songs;
   }
   function load(){
     fetch(DATA+'?t='+Date.now()).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); }).then(function(d){
@@ -108,10 +125,19 @@ h1{font-size:26px;margin-bottom:4px}
   var searchInput=document.getElementById('searchInput');
   if(searchInput) searchInput.addEventListener('input', render);
   syncBtns();
-  var _lm=document.getElementById('lmodal');
-  if(_lm){ _lm.addEventListener('click', function(e){ if(e.target===_lm) _lm.classList.remove('open'); });
-    document.getElementById('lmodalClose').addEventListener('click', function(){ _lm.classList.remove('open'); });
-  }
+  var _lastSongs=[];
+  var listEl=document.getElementById('list');
+  if(listEl){ listEl.addEventListener('click', function(e){
+    var t=e.target;
+    if(t.classList&&t.classList.contains('lbtn')){
+      var i=parseInt(t.getAttribute('data-i'),10); var s=_lastSongs[i]; if(!s) return;
+      s._open=!s._open; render();
+    } else if(t.classList&&t.classList.contains('ldplus')){
+      if(lyricSize<32){ lyricSize+=2; saveLyricSize(); render(); }
+    } else if(t.classList&&t.classList.contains('ldminus')){
+      if(lyricSize>12){ lyricSize-=2; saveLyricSize(); render(); }
+    }
+  }); }
   load();
 })();
 </script>
